@@ -16,10 +16,11 @@ My own recreation of popular game Wordle written in ReactJS.
       npm start
    ```
 
-## Libraries used: 
+## Libraries & api's used: 
   * react-confetti
   * react-hot-toast
   * react-use
+  * api.dictionaryapi.dev (for checking word existence)
 
 
 > ### Disclaimer ###
