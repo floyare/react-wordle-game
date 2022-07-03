@@ -5,7 +5,8 @@ My own recreation of popular game Wordle written in ReactJS.
 
 ## 🎮 How to play?
   * Go to the website with game.
-  * Start writing letters to create correct word and confirm with <kbd>ENTER</kdb>.
+  * Start writing letters to create correct word and confirm with <kbd>ENTER</kdb>. (Word changes each day).
+  
   
 ## Quick Start
    ```
