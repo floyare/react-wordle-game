@@ -1,24 +1,11 @@
 import {useState, useEffect, useCallback} from 'react';
 import Letters from './Components/Letters';
 import Board, { freezeLine } from './Components/Board';
-import { createGlobalState } from 'react-hooks-global-state';
 import Navbar from './Components/Navbar';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 import toast, { Toaster } from 'react-hot-toast';
 
-export const { useGlobalState } = createGlobalState(
-  {
-    letterInputs: [], 
-    currentLine: 1, 
-    currentCell: 1,
-    lineStatus1: 0,
-    lineStatus2: 0,
-    lineStatus3: 0,
-    lineStatus4: 0,
-    lineStatus5: 0,
-  }
-);
 
 export const saveBoardProgress = (board) => {
   localStorage.setItem("wordleBoardProgress", JSON.stringify(board));
@@ -233,7 +220,16 @@ function App() {
     var object = {today};
     if(JSON.stringify(object) !== JSON.stringify(getLatestDate())){
       var item = words[Math.floor(Math.random()*words.length)];
+      localStorage.removeItem("wordleBoardProgress");
+      localStorage.removeItem("wordleProgress");
       setWord(item);
+      changeLineProgress(1);
+
+      loadInitFields();
+
+      setLetters(getLetters());
+      
+      localStorage.setItem("wordleGameState", JSON.stringify(false));
       setDate(object);
     }
 
@@ -244,6 +240,7 @@ function App() {
 
 
   const loadInitFields = useCallback(async () => {
+    console.log("loaded2");
     const Object2 = [];
 
     for(var b = 1; b <= 5; b++){
