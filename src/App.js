@@ -90,9 +90,12 @@ function App() {
 
   const keyDown = useCallback(event => {
     if(currentLine !== 6){
-      currentLine = getLatestLine();
+      //currentLine = getLatestLine();
+      currentLine = getLineProgress();
+      
       let value = event.key;
       value = value.replace(/[^a-zA-Z]/, '');
+      console.log(currentCell);
       if(event.key === "Backspace"){
         if(currentCell != 0){
           currentCell--;
@@ -116,6 +119,7 @@ function App() {
                 return res.json();
               })
               .then(() => {
+                console.log(currentCell);
                 freezeLine(currentLine);
 
                 var object = letterInputs;
@@ -168,7 +172,7 @@ function App() {
               
                 currentLine++;
                 changeLineProgress(currentLine);
-                currentCell = 1;
+                currentCell = 0;
 
               })
               .catch(err => {
@@ -240,7 +244,6 @@ function App() {
 
 
   const loadInitFields = useCallback(async () => {
-    console.log("loaded2");
     const Object2 = [];
 
     for(var b = 1; b <= 5; b++){
