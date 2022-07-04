@@ -92,10 +92,9 @@ function App() {
     if(currentLine !== 6){
       //currentLine = getLatestLine();
       currentLine = getLineProgress();
-      
+
       let value = event.key;
       value = value.replace(/[^a-zA-Z]/, '');
-      console.log(currentCell);
       if(event.key === "Backspace"){
         if(currentCell != 0){
           currentCell--;
@@ -119,7 +118,6 @@ function App() {
                 return res.json();
               })
               .then(() => {
-                console.log(currentCell);
                 freezeLine(currentLine);
 
                 var object = letterInputs;

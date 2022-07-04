@@ -10,6 +10,7 @@ const Board = ({inputs}) => {
   let ci = 1;
   let li = 1;
   let id = 0;
+  let delay = 1;
   return (
     <div className="board">
       <ul> 
@@ -21,7 +22,7 @@ const Board = ({inputs}) => {
             if(li != 5)
               li++;
           }
-
+          
           return(
             <React.Fragment key={id}>
               <li className={"line" + field.line}>

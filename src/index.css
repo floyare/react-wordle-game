@@ -15,6 +15,13 @@ code {
 :root{
   --color: #f0814e;
 }
+  
+@keyframes flipinx {
+  0%{ transform: perspective(400px) rotateX(90deg); }
+  40%{ transform: perspective(400px) rotateX(-10deg); }
+  70%{ transform: perspective(400px) rotateX(10deg); }
+  100%{ transform: perspective(400px) rotateX(0deg); }
+}
 
 .navbar{
   margin: 0 auto;
@@ -34,9 +41,8 @@ code {
   display: inline-block;
   margin: 2px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 34px;
   padding: 5px 10px;
-
 }
 
 #FOUND{
@@ -56,16 +62,19 @@ code {
 #BOARD_FOUND{
   background-color: green;
   color: #fff;
+  animation:flipinx 1s ease 0s 1 normal;
 }
 
 #BOARD_CONTAINS{
   background-color: orange;
   color: #fff;
+  animation:flipinx 1s ease 0s 1 normal;
 }
 
 #BOARD_BAD{
   background-color: rgb(29, 29, 29);
   color: rgb(119, 119, 119);
+  animation:flipinx 1s ease 0s 1 normal;
 }
 
 .board{
@@ -100,12 +109,7 @@ code {
 }
 
 .letter-buttons{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.letter-buttons button{
-  flex: 1 1 10.5%;
+  text-align: center;
 }
 
 .letter-wrapper{
